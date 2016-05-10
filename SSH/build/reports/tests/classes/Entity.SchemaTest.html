@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">3</div>
+<div class="counter">2</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">25.574s</div>
+<div class="counter">9.393s</div>
 <p>duration</p>
 </div>
 </td>
@@ -51,7 +51,7 @@
 </td>
 <td>
 <div class="infoBox failures" id="successRate">
-<div class="percent">0%</div>
+<div class="percent">33%</div>
 <p>successful</p>
 </div>
 </td>
@@ -73,90 +73,6 @@
 <div id="tab0" class="tab">
 <h2>Failed tests</h2>
 <div class="test">
-<a name="testHibernate_spring"></a>
-<h3 class="failures">testHibernate_spring</h3>
-<span class="code">
-<pre>org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [applicationContext-hibernate.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: Entity.Person.date
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
-	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:753)
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
-	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:139)
-	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:93)
-	at Entity.SchemaTest.testHibernate_spring(SchemaTest.java:40)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:105)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:64)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:49)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
-	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:106)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
-	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:360)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
-	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: Entity.Person.date
-	at org.hibernate.cfg.annotations.SimpleValueBinder.setType(SimpleValueBinder.java:184)
-	at org.hibernate.cfg.annotations.PropertyBinder.makePropertyAndValue(PropertyBinder.java:184)
-	at org.hibernate.cfg.annotations.PropertyBinder.makePropertyValueAndBind(PropertyBinder.java:204)
-	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:2214)
-	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:906)
-	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:733)
-	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:245)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:222)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:265)
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
-	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
-	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:692)
-	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
-	at org.springframework.orm.hibernate5.LocalSessionFactoryBean.buildSessionFactory(LocalSessionFactoryBean.java:416)
-	at org.springframework.orm.hibernate5.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:401)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637)
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574)
-	... 55 more
-</pre>
-</span>
-</div>
-<div class="test">
 <a name="testSavePerson"></a>
 <h3 class="failures">testSavePerson</h3>
 <span class="code">
@@ -164,11 +80,11 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 	at org.hibernate.boot.cfgxml.internal.ConfigLoader.loadConfigXmlResource(ConfigLoader.java:53)
 	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.configure(StandardServiceRegistryBuilder.java:163)
 	at org.hibernate.cfg.Configuration.configure(Configuration.java:259)
-	at Entity.SchemaTest.testSavePerson(SchemaTest.java:76)
+	at Entity.SchemaTest.testSavePerson(SchemaTest.java:75)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
@@ -189,7 +105,7 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
 	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
@@ -199,7 +115,7 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
 	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:360)
@@ -219,11 +135,11 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 	at org.hibernate.boot.cfgxml.internal.ConfigLoader.loadConfigXmlResource(ConfigLoader.java:53)
 	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.configure(StandardServiceRegistryBuilder.java:163)
 	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.configure(StandardServiceRegistryBuilder.java:152)
-	at Entity.SchemaTest.testScemaExport(SchemaTest.java:65)
+	at Entity.SchemaTest.testScemaExport(SchemaTest.java:64)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
@@ -244,7 +160,7 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
 	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
@@ -254,7 +170,7 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:483)
+	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
 	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
 	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:360)
@@ -278,13 +194,13 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 </tr>
 </thead>
 <tr>
-<td class="failures">testHibernate_spring</td>
-<td>22.961s</td>
-<td class="failures">failed</td>
+<td class="success">testHibernate_spring</td>
+<td>8.221s</td>
+<td class="success">passed</td>
 </tr>
 <tr>
 <td class="failures">testSavePerson</td>
-<td>2.610s</td>
+<td>1.169s</td>
 <td class="failures">failed</td>
 </tr>
 <tr>
@@ -297,25 +213,34 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2016-05-10 13:55:01,835 -HHH000412: Hibernate Core {5.1.0.Final} -INFO  -org.hibernate.Version:37 -[Test worker:0ms]
- 2016-05-10 13:55:01,863 -HHH000206: hibernate.properties not found -INFO  -org.hibernate.cfg.Environment:213 -[Test worker:28ms]
- 2016-05-10 13:55:01,877 -HHH000021: Bytecode provider name : javassist -INFO  -org.hibernate.cfg.Environment:317 -[Test worker:42ms]
- 2016-05-10 13:55:04,691 -Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@13e923cd: startup date [Tue May 10 13:55:04 CST 2016]; root of context hierarchy -INFO  -org.springframework.context.support.ClassPathXmlApplicationContext:578 -[Test worker:2856ms]
- 2016-05-10 13:55:05,172 -Loading XML bean definitions from class path resource [applicationContext-hibernate.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:3337ms]
- 2016-05-10 13:55:09,115 -Loading XML bean definitions from class path resource [applicationContext-struts2.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:7280ms]
- 2016-05-10 13:55:09,181 -Loading XML bean definitions from class path resource [applicationContext.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:7346ms]
- 2016-05-10 13:55:09,231 -Loading XML bean definitions from class path resource [applicationContext-prop.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:7396ms]
- 2016-05-10 13:55:10,919 -Loading properties file from class path resource [conn.properties] -INFO  -org.springframework.beans.factory.config.PropertyPlaceholderConfigurer:172 -[Test worker:9084ms]
- 2016-05-10 13:55:10,922 -Loading properties file from class path resource [public.properties] -INFO  -org.springframework.beans.factory.config.PropertyPlaceholderConfigurer:172 -[Test worker:9087ms]
- 2016-05-10 13:55:12,950 -MLog clients using log4j logging. -INFO  -com.mchange.v2.log.MLog:80 -[Test worker:11115ms]
- 2016-05-10 13:55:17,208 -Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10] -INFO  -com.mchange.v2.c3p0.C3P0Registry:204 -[Test worker:15373ms]
- 2016-05-10 13:55:18,550 -HCANN000001: Hibernate Commons Annotations {5.0.1.Final} -INFO  -org.hibernate.annotations.common.Version:66 -[Test worker:16715ms]
- 2016-05-10 13:55:21,714 -Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ java.beans.IntrospectionException: java.lang.reflect.InvocationTargetException [numThreadsAwaitingCheckoutDefaultUser] ] -INFO  -com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource:462 -[Test worker:19879ms]
- 2016-05-10 13:55:21,766 -HHH000342: Could not obtain connection to query metadata : Unknown database 'ssh' -WARN  -org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator:132 -[Test worker:19931ms]
- 2016-05-10 13:55:22,070 -HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect -INFO  -org.hibernate.dialect.Dialect:156 -[Test worker:20235ms]
- 2016-05-10 13:55:22,412 -HHH000422: Disabling contextual LOB creation as connection was null -INFO  -org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl:63 -[Test worker:20577ms]
- 2016-05-10 13:55:25,053 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [applicationContext-hibernate.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: Entity.Person.date -WARN  -org.springframework.context.support.ClassPathXmlApplicationContext:546 -[Test worker:23218ms]
- </pre>
+<pre>2016-05-10 15:27:07,207 -HHH000412: Hibernate Core {5.1.0.Final} -INFO  -org.hibernate.Version:37 -[Test worker:0ms]
+ 2016-05-10 15:27:07,215 -HHH000206: hibernate.properties not found -INFO  -org.hibernate.cfg.Environment:213 -[Test worker:8ms]
+ 2016-05-10 15:27:07,219 -HHH000021: Bytecode provider name : javassist -INFO  -org.hibernate.cfg.Environment:317 -[Test worker:12ms]
+ 2016-05-10 15:27:07,371 -Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@502acd30: startup date [Tue May 10 15:27:07 CST 2016]; root of context hierarchy -INFO  -org.springframework.context.support.ClassPathXmlApplicationContext:578 -[Test worker:164ms]
+ 2016-05-10 15:27:07,424 -Loading XML bean definitions from class path resource [applicationContext-hibernate.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:217ms]
+ 2016-05-10 15:27:07,700 -Loading XML bean definitions from class path resource [applicationContext-struts2.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:493ms]
+ 2016-05-10 15:27:07,727 -Loading XML bean definitions from class path resource [applicationContext.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:520ms]
+ 2016-05-10 15:27:07,748 -Loading XML bean definitions from class path resource [applicationContext-prop.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:541ms]
+ 2016-05-10 15:27:07,915 -Loading properties file from class path resource [conn.properties] -INFO  -org.springframework.beans.factory.config.PropertyPlaceholderConfigurer:172 -[Test worker:708ms]
+ 2016-05-10 15:27:07,916 -Loading properties file from class path resource [public.properties] -INFO  -org.springframework.beans.factory.config.PropertyPlaceholderConfigurer:172 -[Test worker:709ms]
+ 2016-05-10 15:27:08,125 -MLog clients using log4j logging. -INFO  -com.mchange.v2.log.MLog:80 -[Test worker:918ms]
+ 2016-05-10 15:27:08,868 -Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10] -INFO  -com.mchange.v2.c3p0.C3P0Registry:204 -[Test worker:1661ms]
+ 2016-05-10 15:27:09,144 -HCANN000001: Hibernate Commons Annotations {5.0.1.Final} -INFO  -org.hibernate.annotations.common.Version:66 -[Test worker:1937ms]
+ 2016-05-10 15:27:09,696 -Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -&gt; 3, acquireRetryAttempts -&gt; 0, acquireRetryDelay -&gt; 1000, autoCommitOnClose -&gt; false, automaticTestTable -&gt; Test, breakAfterAcquireFailure -&gt; false, checkoutTimeout -&gt; 3000, connectionCustomizerClassName -&gt; null, connectionTesterClassName -&gt; com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -&gt; 1hgf4dq9g16lw2h21mgrnib|a775f6, debugUnreturnedConnectionStackTraces -&gt; false, description -&gt; null, driverClass -&gt; com.mysql.jdbc.Driver, factoryClassLocation -&gt; null, forceIgnoreUnresolvedTransactions -&gt; false, identityToken -&gt; 1hgf4dq9g16lw2h21mgrnib|a775f6, idleConnectionTestPeriod -&gt; 60, initialPoolSize -&gt; 2, jdbcUrl -&gt; jdbc:mysql://localhost:3306/ssh?useUnicode=true&amp;amp;characterEncoding=UTF-8, maxAdministrativeTaskTime -&gt; 0, maxConnectionAge -&gt; 0, maxIdleTime -&gt; 60, maxIdleTimeExcessConnections -&gt; 0, maxPoolSize -&gt; 20, maxStatements -&gt; 100, maxStatementsPerConnection -&gt; 0, minPoolSize -&gt; 2, numHelperThreads -&gt; 3, numThreadsAwaitingCheckoutDefaultUser -&gt; 0, preferredTestQuery -&gt; null, properties -&gt; {user=******, password=******}, propertyCycle -&gt; 0, testConnectionOnCheckin -&gt; false, testConnectionOnCheckout -&gt; false, unreturnedConnectionTimeout -&gt; 0, usesTraditionalReflectiveProxies -&gt; false ] -INFO  -com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource:462 -[Test worker:2489ms]
+ 2016-05-10 15:27:09,725 -HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect -INFO  -org.hibernate.dialect.Dialect:156 -[Test worker:2518ms]
+ 2016-05-10 15:27:09,800 -HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException -INFO  -org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl:124 -[Test worker:2593ms]
+ 2016-05-10 15:27:13,736 -Initializing EhCache CacheManager -INFO  -org.springframework.cache.ehcache.EhCacheManagerFactoryBean:129 -[Test worker:6529ms]
+ 2016-05-10 15:27:14,021 -Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -&gt; 3, acquireRetryAttempts -&gt; 0, acquireRetryDelay -&gt; 1000, autoCommitOnClose -&gt; false, automaticTestTable -&gt; Test, breakAfterAcquireFailure -&gt; false, checkoutTimeout -&gt; 3000, connectionCustomizerClassName -&gt; null, connectionTesterClassName -&gt; com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -&gt; 1hgf4dq9g16lw2h21mgrnib|a775f6, debugUnreturnedConnectionStackTraces -&gt; false, description -&gt; null, driverClass -&gt; com.mysql.jdbc.Driver, factoryClassLocation -&gt; null, forceIgnoreUnresolvedTransactions -&gt; false, identityToken -&gt; 1hgf4dq9g16lw2h21mgrnib|a775f6, idleConnectionTestPeriod -&gt; 60, initialPoolSize -&gt; 2, jdbcUrl -&gt; jdbc:mysql://localhost:3306/ssh?useUnicode=true&amp;amp;characterEncoding=UTF-8, maxAdministrativeTaskTime -&gt; 0, maxConnectionAge -&gt; 0, maxIdleTime -&gt; 60, maxIdleTimeExcessConnections -&gt; 0, maxPoolSize -&gt; 20, maxStatements -&gt; 100, maxStatementsPerConnection -&gt; 0, minPoolSize -&gt; 2, numHelperThreads -&gt; 3, numThreadsAwaitingCheckoutDefaultUser -&gt; 0, preferredTestQuery -&gt; null, properties -&gt; {user=******, password=******}, propertyCycle -&gt; 0, testConnectionOnCheckin -&gt; false, testConnectionOnCheckout -&gt; false, unreturnedConnectionTimeout -&gt; 0, usesTraditionalReflectiveProxies -&gt; false ]] of Hibernate SessionFactory for HibernateTransactionManager -INFO  -org.springframework.orm.hibernate5.HibernateTransactionManager:357 -[Test worker:6814ms]
+ =====sendAction==========
+=====注入sessionFactory===========
+Hibernate: 
+    insert 
+    into
+        Person
+        (date, name, password, test) 
+    values
+        (?, ?, ?, ?)
+</pre>
 </span>
 </div>
 </div>
@@ -326,7 +251,7 @@ Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a 
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 2.11</a> at 2016-5-10 13:55:38</p>
+<a href="http://www.gradle.org">Gradle 2.11</a> at 2016-5-10 15:27:19</p>
 </div>
 </div>
 </body>

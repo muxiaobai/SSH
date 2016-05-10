@@ -1,11 +1,11 @@
 {
   "1.0": {
     "project_path": ":",
-    "project_dir": "F:\\localGitHub\\SSH\\SSH\\SSH",
-    "connection_project_dir": "F:\\localGitHub\\SSH\\SSH\\SSH",
-    "connection_gradle_user_home": null,
-    "connection_gradle_distribution": "GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(D:\\Program Files\\gradle-2.11))",
-    "connection_java_home": null,
+    "project_dir": "E:\\ZQL\\SSH-master\\SSH",
+    "connection_project_dir": "E:\\ZQL\\SSH-master\\SSH",
+    "connection_gradle_user_home": "F:\\gradle-2.11",
+    "connection_gradle_distribution": "GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(F:\\gradle-2.11))",
+    "connection_java_home": "C:\\Program Files\\Java\\jre1.8.0_60",
     "connection_jvm_arguments": "",
     "connection_arguments": ""
   }

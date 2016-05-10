@@ -2,7 +2,6 @@ package Entity;
 
 import java.util.Date;
 import java.util.EnumSet;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,8 +15,8 @@ import org.hibernate.tool.schema.TargetType;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import Dao.PersonDao;
+import Entity.Person;
 
 public class SchemaTest {
 	public static void main(String[] args) {
@@ -29,7 +28,7 @@ public class SchemaTest {
 				//Transaction transaction=session.beginTransaction();
 				Person person = new Person();
 				person.setName("zhang1");
-			//	person.setDate(new Date());
+				person.setDate(new Date());
 				//session.save(person);
 				personDaoImpl.save(person);
 				//transaction.commit();
@@ -48,7 +47,7 @@ public class SchemaTest {
 		// Transaction transaction=session.beginTransaction();
 		Person person = new Person();
 		person.setName("zhang1");
-	//	person.setDate(new Date());
+		person.setDate(new Date());
 		// session.save(person);
 		personDaoImpl.save(person);
 		// transaction.commit();
@@ -72,7 +71,7 @@ public class SchemaTest {
 
 	@Test
 	public void testSavePerson() {
-		// opensession 闇�瑕佹樉寮忓叧闂�,鎵嬪姩浜嬪姟.
+		// opensession 需要显式关闭,手动事务.
 		Configuration conf = new Configuration().configure("hibernate.cfg.xml");
 		ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties())
 				.build();

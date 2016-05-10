@@ -1,7 +1,7 @@
 package Entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +26,7 @@ public class Person implements Serializable{
 	private Double test;
 	private String name;
 	private String password;
+	@Temporal(value=TemporalType.TIMESTAMP)
 	private Date date;
 	public Integer getId() {
 		return id;

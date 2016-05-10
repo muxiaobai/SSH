@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Util.SendMailUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-05-10T05:55:25" hostname="4OELQXB3A4XVHHG" time="10.4">
+<testsuite name="Util.SendMailUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-05-10T07:27:15" hostname="PC-20140519IFBA" time="3.605">
   <properties/>
-  <testcase name="sendEmail" classname="Util.SendMailUtilTest" time="10.4"/>
+  <testcase name="sendEmail" classname="Util.SendMailUtilTest" time="3.605"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
