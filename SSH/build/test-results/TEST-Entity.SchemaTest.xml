@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Entity.SchemaTest" tests="3" skipped="0" failures="2" errors="0" timestamp="2016-05-07T07:47:19" hostname="admin-pc" time="6.398">
+<testsuite name="Entity.SchemaTest" tests="3" skipped="0" failures="3" errors="0" timestamp="2016-05-10T05:54:59" hostname="4OELQXB3A4XVHHG" time="25.577">
   <properties/>
-  <testcase name="testSavePerson" classname="Entity.SchemaTest" time="0.375">
+  <testcase name="testSavePerson" classname="Entity.SchemaTest" time="2.61">
     <failure message="org.hibernate.internal.util.config.ConfigurationException: Could not locate cfg.xml resource [hibernate.cfg.xml]" type="org.hibernate.internal.util.config.ConfigurationException">org.hibernate.internal.util.config.ConfigurationException: Could not locate cfg.xml resource [hibernate.cfg.xml]
 	at org.hibernate.boot.cfgxml.internal.ConfigLoader.loadConfigXmlResource(ConfigLoader.java:53)
 	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.configure(StandardServiceRegistryBuilder.java:163)
 	at org.hibernate.cfg.Configuration.configure(Configuration.java:259)
-	at Entity.SchemaTest.testSavePerson(SchemaTest.java:75)
+	at Entity.SchemaTest.testSavePerson(SchemaTest.java:76)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -52,13 +52,92 @@
 	at java.lang.Thread.run(Thread.java:745)
 </failure>
   </testcase>
-  <testcase name="testHibernate_spring" classname="Entity.SchemaTest" time="6.006"/>
-  <testcase name="testScemaExport" classname="Entity.SchemaTest" time="0.015">
+  <testcase name="testHibernate_spring" classname="Entity.SchemaTest" time="22.961">
+    <failure message="org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [applicationContext-hibernate.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: Entity.Person.date" type="org.springframework.beans.factory.BeanCreationException">org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [applicationContext-hibernate.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: Entity.Person.date
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1578)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:545)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:482)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:753)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:839)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:538)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.&lt;init&gt;(ClassPathXmlApplicationContext.java:93)
+	at Entity.SchemaTest.testHibernate_spring(SchemaTest.java:40)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.runTestClass(JUnitTestClassExecuter.java:105)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecuter.execute(JUnitTestClassExecuter.java:56)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassProcessor.processTestClass(JUnitTestClassProcessor.java:64)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.messaging.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:106)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.messaging.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.messaging.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:360)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:54)
+	at org.gradle.internal.concurrent.StoppableExecutorImpl$1.run(StoppableExecutorImpl.java:40)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: Entity.Person.date
+	at org.hibernate.cfg.annotations.SimpleValueBinder.setType(SimpleValueBinder.java:184)
+	at org.hibernate.cfg.annotations.PropertyBinder.makePropertyAndValue(PropertyBinder.java:184)
+	at org.hibernate.cfg.annotations.PropertyBinder.makePropertyValueAndBind(PropertyBinder.java:204)
+	at org.hibernate.cfg.AnnotationBinder.processElementAnnotations(AnnotationBinder.java:2214)
+	at org.hibernate.cfg.AnnotationBinder.processIdPropertiesIfNotAlready(AnnotationBinder.java:906)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:733)
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:245)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:222)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:265)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:692)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at org.springframework.orm.hibernate5.LocalSessionFactoryBean.buildSessionFactory(LocalSessionFactoryBean.java:416)
+	at org.springframework.orm.hibernate5.LocalSessionFactoryBean.afterPropertiesSet(LocalSessionFactoryBean.java:401)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1637)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1574)
+	... 55 more
+</failure>
+  </testcase>
+  <testcase name="testScemaExport" classname="Entity.SchemaTest" time="0.003">
     <failure message="org.hibernate.internal.util.config.ConfigurationException: Could not locate cfg.xml resource [hibernate.cfg.xml]" type="org.hibernate.internal.util.config.ConfigurationException">org.hibernate.internal.util.config.ConfigurationException: Could not locate cfg.xml resource [hibernate.cfg.xml]
 	at org.hibernate.boot.cfgxml.internal.ConfigLoader.loadConfigXmlResource(ConfigLoader.java:53)
 	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.configure(StandardServiceRegistryBuilder.java:163)
 	at org.hibernate.boot.registry.StandardServiceRegistryBuilder.configure(StandardServiceRegistryBuilder.java:152)
-	at Entity.SchemaTest.testScemaExport(SchemaTest.java:64)
+	at Entity.SchemaTest.testScemaExport(SchemaTest.java:65)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -104,33 +183,24 @@
 	at java.lang.Thread.run(Thread.java:745)
 </failure>
   </testcase>
-  <system-out><![CDATA[2016-05-07 15:47:19,489 -HHH000412: Hibernate Core {5.1.0.Final} -INFO  -org.hibernate.Version:37 -[Test worker:0ms]
- 2016-05-07 15:47:19,495 -HHH000206: hibernate.properties not found -INFO  -org.hibernate.cfg.Environment:213 -[Test worker:6ms]
- 2016-05-07 15:47:19,497 -HHH000021: Bytecode provider name : javassist -INFO  -org.hibernate.cfg.Environment:317 -[Test worker:8ms]
- 2016-05-07 15:47:19,682 -Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4fd3a2b9: startup date [Sat May 07 15:47:19 CST 2016]; root of context hierarchy -INFO  -org.springframework.context.support.ClassPathXmlApplicationContext:578 -[Test worker:193ms]
- 2016-05-07 15:47:19,741 -Loading XML bean definitions from class path resource [applicationContext-hibernate.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:252ms]
- 2016-05-07 15:47:20,206 -Loading XML bean definitions from class path resource [applicationContext-struts2.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:717ms]
- 2016-05-07 15:47:20,248 -Loading XML bean definitions from class path resource [applicationContext.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:759ms]
- 2016-05-07 15:47:20,283 -Loading XML bean definitions from class path resource [applicationContext-prop.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:794ms]
- 2016-05-07 15:47:20,500 -Loading properties file from class path resource [conn.properties] -INFO  -org.springframework.beans.factory.config.PropertyPlaceholderConfigurer:172 -[Test worker:1011ms]
- 2016-05-07 15:47:20,500 -Loading properties file from class path resource [public.properties] -INFO  -org.springframework.beans.factory.config.PropertyPlaceholderConfigurer:172 -[Test worker:1011ms]
- 2016-05-07 15:47:20,709 -MLog clients using log4j logging. -INFO  -com.mchange.v2.log.MLog:80 -[Test worker:1220ms]
- 2016-05-07 15:47:21,138 -Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10] -INFO  -com.mchange.v2.c3p0.C3P0Registry:204 -[Test worker:1649ms]
- 2016-05-07 15:47:21,359 -HCANN000001: Hibernate Commons Annotations {5.0.1.Final} -INFO  -org.hibernate.annotations.common.Version:66 -[Test worker:1870ms]
- 2016-05-07 15:47:22,169 -Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 0, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> Test, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgecjl9g12cai42njxzd5|14d7e202, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjl9g12cai42njxzd5|14d7e202, idleConnectionTestPeriod -> 60, initialPoolSize -> 2, jdbcUrl -> jdbc:mysql://localhost:3306/ssh?useUnicode=true&amp;characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 100, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ] -INFO  -com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource:462 -[Test worker:2680ms]
- 2016-05-07 15:47:22,267 -HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect -INFO  -org.hibernate.dialect.Dialect:156 -[Test worker:2778ms]
- 2016-05-07 15:47:22,338 -HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException -INFO  -org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl:124 -[Test worker:2849ms]
- 2016-05-07 15:47:24,482 -Initializing EhCache CacheManager -INFO  -org.springframework.cache.ehcache.EhCacheManagerFactoryBean:129 -[Test worker:4993ms]
- 2016-05-07 15:47:24,642 -Using DataSource [com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 0, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> Test, breakAfterAcquireFailure -> false, checkoutTimeout -> 3000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hgecjl9g12cai42njxzd5|14d7e202, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hgecjl9g12cai42njxzd5|14d7e202, idleConnectionTestPeriod -> 60, initialPoolSize -> 2, jdbcUrl -> jdbc:mysql://localhost:3306/ssh?useUnicode=true&amp;characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 20, maxStatements -> 100, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]] of Hibernate SessionFactory for HibernateTransactionManager -INFO  -org.springframework.orm.hibernate5.HibernateTransactionManager:357 -[Test worker:5153ms]
- =====sendAction==========
-=====注入sessionFactory===========
-Hibernate: 
-    insert 
-    into
-        Person
-        (date, name, password, test) 
-    values
-        (?, ?, ?, ?)
-]]></system-out>
+  <system-out><![CDATA[2016-05-10 13:55:01,835 -HHH000412: Hibernate Core {5.1.0.Final} -INFO  -org.hibernate.Version:37 -[Test worker:0ms]
+ 2016-05-10 13:55:01,863 -HHH000206: hibernate.properties not found -INFO  -org.hibernate.cfg.Environment:213 -[Test worker:28ms]
+ 2016-05-10 13:55:01,877 -HHH000021: Bytecode provider name : javassist -INFO  -org.hibernate.cfg.Environment:317 -[Test worker:42ms]
+ 2016-05-10 13:55:04,691 -Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@13e923cd: startup date [Tue May 10 13:55:04 CST 2016]; root of context hierarchy -INFO  -org.springframework.context.support.ClassPathXmlApplicationContext:578 -[Test worker:2856ms]
+ 2016-05-10 13:55:05,172 -Loading XML bean definitions from class path resource [applicationContext-hibernate.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:3337ms]
+ 2016-05-10 13:55:09,115 -Loading XML bean definitions from class path resource [applicationContext-struts2.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:7280ms]
+ 2016-05-10 13:55:09,181 -Loading XML bean definitions from class path resource [applicationContext.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:7346ms]
+ 2016-05-10 13:55:09,231 -Loading XML bean definitions from class path resource [applicationContext-prop.xml] -INFO  -org.springframework.beans.factory.xml.XmlBeanDefinitionReader:317 -[Test worker:7396ms]
+ 2016-05-10 13:55:10,919 -Loading properties file from class path resource [conn.properties] -INFO  -org.springframework.beans.factory.config.PropertyPlaceholderConfigurer:172 -[Test worker:9084ms]
+ 2016-05-10 13:55:10,922 -Loading properties file from class path resource [public.properties] -INFO  -org.springframework.beans.factory.config.PropertyPlaceholderConfigurer:172 -[Test worker:9087ms]
+ 2016-05-10 13:55:12,950 -MLog clients using log4j logging. -INFO  -com.mchange.v2.log.MLog:80 -[Test worker:11115ms]
+ 2016-05-10 13:55:17,208 -Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10] -INFO  -com.mchange.v2.c3p0.C3P0Registry:204 -[Test worker:15373ms]
+ 2016-05-10 13:55:18,550 -HCANN000001: Hibernate Commons Annotations {5.0.1.Final} -INFO  -org.hibernate.annotations.common.Version:66 -[Test worker:16715ms]
+ 2016-05-10 13:55:21,714 -Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ java.beans.IntrospectionException: java.lang.reflect.InvocationTargetException [numThreadsAwaitingCheckoutDefaultUser] ] -INFO  -com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource:462 -[Test worker:19879ms]
+ 2016-05-10 13:55:21,766 -HHH000342: Could not obtain connection to query metadata : Unknown database 'ssh' -WARN  -org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator:132 -[Test worker:19931ms]
+ 2016-05-10 13:55:22,070 -HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect -INFO  -org.hibernate.dialect.Dialect:156 -[Test worker:20235ms]
+ 2016-05-10 13:55:22,412 -HHH000422: Disabling contextual LOB creation as connection was null -INFO  -org.hibernate.engine.jdbc.env.internal.LobCreatorBuilderImpl:63 -[Test worker:20577ms]
+ 2016-05-10 13:55:25,053 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sessionFactory' defined in class path resource [applicationContext-hibernate.xml]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: @Temporal should only be set on a java.util.Date or java.util.Calendar property: Entity.Person.date -WARN  -org.springframework.context.support.ClassPathXmlApplicationContext:546 -[Test worker:23218ms]
+ ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
