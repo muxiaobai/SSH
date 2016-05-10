@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Util.SendMailUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-05-07T07:47:25" hostname="admin-pc" time="10.817">
+  <properties/>
+  <testcase name="sendEmail" classname="Util.SendMailUtilTest" time="10.817"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

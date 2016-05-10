@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="entity.TestNews" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-04-15T04:07:49" hostname="admin-pc" time="1.337">
+  <properties/>
+  <testcase name="testScemaExport" classname="entity.TestNews" time="1.337"/>
+  <system-out><![CDATA[12:07:50,083  WARN connections:71 - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+ 12:07:50,796  INFO SchemaExport:245 - HHH000227: Running hbm2ddl schema export
+ ]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
