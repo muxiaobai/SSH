@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="user"  extends="default">
+		<!-- 验证用户昵称是否唯一 --> 
+		<action name="user_check_*" class="userAction" method="{1}" >
+			<result name="{1}" type="json">
+			  <param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="user_*" class="userAction" method="{1}" >
+			<result name="{1}" type="redirectAction">send_jsp_index</result>
+			<result name="error" type="chain">send_jsp_login</result>
+<!-- 	chain	-->
+		
+		</action>
+	</package>
+	<package name="email"  extends="default">
+		<action name="sendEmail_*" class="sendEmailAction" method="{1}" >
+			<result name="json_{1}" type="json">
+			  <param name="root">jsonMap</param>
+			</result>
+			<result name="{1}" type="chain">send_jsp_index</result>
+		</action>
+	</package>
+</struts>
+ 

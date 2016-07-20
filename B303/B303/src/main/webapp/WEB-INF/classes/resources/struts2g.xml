@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="g_route" extends="default">
+		<action name="DownSale" class="Route" method="DownSale">
+			<result type="chain" >send_back_RouteRecovery</result>
+		</action>
+		<action name="UpSale" class="Route" method="UpSale">
+			<result type="chain" >send_back_RouteManage</result>
+		</action>
+		<action name="SavePrice" class="Route" method="savePrice">
+			<result type="chain" >send_back_RouteManage</result>
+			<result name="error" type="chain">send_back_RouteManage</result>
+		</action>
+		<action name="price" class="price" method="ShowbyId">
+			<result type="json">
+			<param name="root">json</param>
+			</result>
+		</action>
+		<action name="searchuser" class="userAction" method="SearchUser">
+			<result name="success">/WEB-INF/chiefback/UserDetail.jsp</result>
+			<result name="input">/WEB-INF/chiefback/SearchUser.jsp</result>
+		</action>
+		<action name="searchorder" class="order" method="SearchOrder">
+			<result name="success">/WEB-INF/chiefback/UserDetail.jsp</result>
+			<result name="input">/WEB-INF/chiefback/SearchUser.jsp</result>
+		</action> 
+		<action name="send_chiefback_Supplier" class="supplier" method="SearchSupplier">
+			<result name="success">/WEB-INF/chiefback/Supplier.jsp</result>
+		</action> 
+		
+		<action name="auditdetail" class="supplier" method="AuditDetail">
+			<result name="success">/WEB-INF/chiefback/AuditDetail.jsp</result>
+		</action>
+		<action name="updateusertype" class="userAction" method="UpdateUserType">
+			<result type="chain" name="success">send_chiefback_AuditSupplier</result>
+		</action>
+		<action name="send_back_NewPrice" class="Route" method="LoadRoute">
+			<result name="success">/WEB-INF/back/NewPrice.jsp</result>
+		</action>
+		<action name="send_deputyback_SupplierManage" class="supplier" method="SearchSupplier">
+			<result name="success">/WEB-INF/deputyback/SupplierManage.jsp</result>
+		</action>
+	</package>
+	
+</struts>
+ 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true"/><!--开发模式-->  
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+<!--     <constant name="struts.multipart.saveDir" value="/upload"/>临时文件上传路径 -->
+<!--     <constant name="struts.multipart.saveDir" value="D:/"/> -->
+    	<include file="struts2z.xml"></include>
+   
+    <package name="default" extends="json-default,struts-default">
+	  	
+	  	<interceptors>
+	  		<interceptor name="first" class="firstInterceptor"/>
+	  		<interceptor name="second" class="secondInterceptor"/>
+		  	<interceptor-stack name="default">
+		  		<interceptor-ref name="defaultStack">
+		  		 <param name="fileUpload.allowedTypes">image/jpeg,image/png,image/gif</param>
+		   		 <param name="fileUpload.maximumSize">4194304000</param>
+				</interceptor-ref>
+				<interceptor-ref name="second"/>
+				<interceptor-ref name="first"/>
+		  	</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="default"/>
+	</package>
+<!-- 	<package name="json" namespace="/" extends="default"> -->
+<!-- 		<action name="person_query" class="personAction" method="query"> -->
+<!-- 			<result  name="query" type="json"> -->
+<!-- 				<param name="root">jsonMap</param> -->
+<!-- 				白名单 -->
+<!-- 				<param name="includeProperties"></param> -->
+<!-- 				黑名单 -->
+<!-- 				<param name="excludeProperties"></param> -->
+<!-- 			</result> -->
+<!-- 		</action> -->
+<!-- 		<action name="person_*" class="personAction" method="{1}"> -->
+<!-- 			<result name="{1}" type="json"> -->
+<!-- 			<param name="root">jsonMap</param> -->
+<!-- 			</result> -->
+<!-- 		</action> -->
+<!-- 		<action name="util_*" class="utilAction"  method="{1}"> -->
+<!-- 			<result name="{1}" type="json"> -->
+<!-- 				动态设置Action的属性值 -->
+<!-- 			<param name="savePath">/upload</param> -->
+<!-- 			</result> -->
+<!-- 		</action> -->
+<!-- 	</package> -->
+	<package name="send" extends="default">
+		<!-- 定义处理用户请求的Action，该Action的class属性不是实际处理类
+			, 而是Spring容器中的Bean实例的ID -->
+<!-- 		<action name="login" class="loginAction"> -->
+ 			<!-- 为两个逻辑视图配置视图页面 --> 
+<!-- 			<result name="error">/WEB-INF/content/error.jsp</result> -->
+<!-- 			<result>/WEB-INF/content/ServletSuccess.jsp</result> -->
+<!-- 		</action> -->
+<!-- 		method="{2}" -->
+		<!-- 请求转发 -->
+
+		<action name="send_*_*" class="sendAction" >
+			<result>/WEB-INF/{1}/{2}.jsp</result>
+		</action>
+		<action name="*" class="sendAction">
+			<result>{1}.jsp</result>
+		</action>
+	</package>
+	
+	<constant name="struts.action.excludePattern" value="/assets/.*?" /><!-- default locale -->
+
+</struts>

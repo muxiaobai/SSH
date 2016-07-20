@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="c_manager" extends="default">
+    	<action name="save_manager" class="Manager" method="save">
+			<result name="save" type="json">
+			<param name="root">jsonMap</param>
+			</result>
+		</action>
+		
+		<action name="delete_manager" class="Manager" method="delete">
+			<result name="delete" type="json">
+			<param name="root">jsonMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="c_province" extends="default">
+    	<action name="find_cities" class="Province" method="findCity">
+			<result type="json">
+			<param name="root">jsonMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="c_kind" extends="default">
+		<action name="find_kinds" class="Kind" method="findKinds">
+			<result type="json">
+			<param name="root">jsonMap</param>
+			</result>
+		</action>
+	</package>
+	
+	
+	<package name="c_route" extends="default">
+		<action name="save_route" class="Route" method="save">
+			<result name="save" type="json">
+			<param name="root">jsonMap</param>
+			</result>
+		</action>
+	</package>
+	
+		<package name="c_order" extends="default">
+		<action name="show_order" class="Order" method="show">
+			<result>
+			send_back_OrderOpera
+			</result>
+<!-- 			<result name="save" type="json"> -->
+<!-- 			<param name="root">jsonMap</param> -->
+<!-- 			</result> -->
+		</action>
+	</package>
+	
+	
+	    	
+	
+</struts>
+ 

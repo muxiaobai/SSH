@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/cache
+	http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+	
+	<bean id="firstInterceptor" class="Interceptor.FirstInterceptor" />
+	<bean id="secondInterceptor" class="Interceptor.SecondInterceptor" />
+	<!-- 让Spring管理的Action实例，并依赖注入业务逻辑组件 -->
+<!-- 	<bean id="loginAction" class="Action.LoginAction" scope="prototype"/> -->
+	<!-- 请求转发Action -->
+	<bean id="sendAction" class="Action.SendAction"/>
+	<import resource="applicationContext-struts2z.xml"/>
+	<import resource="applicationContext-struts2g.xml"/>
+	<import resource="applicationContext-struts2c.xml"/>
+	<import resource="applicationContext-struts2h.xml"/>
+	
+</beans>

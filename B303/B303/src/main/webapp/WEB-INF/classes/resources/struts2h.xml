@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<package name="user"  extends="default">
+		<action name="userLogin" class="userAction" method="login">
+			<result name="success">/WEB-INF/front/Index.jsp</result>
+			<result name="error">/WEB-INF/front/login.jsp</result>
+		</action>
+		<action name="userRegister" class="userAction" method="register">
+			<result name="success">/WEB-INF/front/Index.jsp</result>
+			<result name="error">/WEB-INF/front/register.jsp</result>
+		</action>
+		<action name="userBackAdd" class="userAction" method="backAdd">
+			<result name="success">/WEB-INF/back/NewUser.jsp</result>
+			<result name="error">/WEB-INF/back/NewUser.jsp</result>
+		</action>
+		<!-- 验证用户名是否唯一 --> 
+		<action name="usernameValidation" class="userAction" method="usernameValidation" >
+			<result name="success" type="json">
+			  <param name="root">jsonMap</param>
+			</result>
+
+		</action>
+		<!-- 验证用户名是否存在 --> 
+		<action name="usernameCheck" class="userAction" method="usernameCheck" >
+			<result name="success" type="json">
+			  <param name="root">jsonMap</param>
+			</result>
+		</action>
+		<!-- 验证用户昵称是否唯一 --> 
+		<action name="nameValidation" class="userAction" method="nameValidation" >
+			<result name="success" type="json">
+			  <param name="root">jsonMap</param>
+			</result>
+			
+		
+		</action>
+	</package>
+	<package name="supplier"  extends="default">
+	    <action name="supplierSave" class="supplierAction" method="save" >
+		<result name="save">/WEB-INF/back/Store.jsp</result>
+		<result name="error">/WEB-INF/back/Store.jsp</result>
+		</action>
+	</package>
+	<package name="page"  extends="default">
+	    <action name="IndexPageManage" class="pageAction" method="save" >
+		<result name="success">/WEB-INF/deputyback/IndexPageManage.jsp</result>
+		<result name="error">/WEB-INF/deputyback/IndexPageManage.jsp</result>
+		</action>
+	</package>
+</struts>
+ 

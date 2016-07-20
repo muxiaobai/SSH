@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/cache
+	http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+	
+
+	
+	
+	
+	
+	
+	
+	<!-- 定义BaseDao组件，并将SessionFactory注入DAO组件  泛型不能实例化,所以懒加载-->	
+	<bean id="baseDaoImpl" abstract="true"  lazy-init="true" p:sessionFactory-ref="sessionFactory" />
+	<bean id="kindDaoImpl" class="DaoImpl.KindDaoImpl" parent="baseDaoImpl" />
+<!-- 	<bean id="personDaoImpl" class="DaoImpl.PersonDaoImpl" parent="baseDaoImpl" /> -->
+	<bean id="userDaoImpl" class="DaoImpl.UserDaoImpl" parent="baseDaoImpl" />
+	<bean id="supplierDaoImpl" class="DaoImpl.SupplierDaoImpl" parent="baseDaoImpl" />
+	<bean id="relationDaoImpl" class="DaoImpl.RelationDaoImpl" parent="baseDaoImpl" />
+ 	<bean id="managerDaoImpl" class="DaoImpl.ManagerDaoImpl" parent="baseDaoImpl" />
+	<bean id="routeDaoImpl" class="DaoImpl.RouteDaoImpl" parent="baseDaoImpl" />
+	<bean id="provinceDaoImpl" class="DaoImpl.ProvinceDaoImpl" parent="baseDaoImpl" />
+	<bean id="cityDaoImpl" class="DaoImpl.CityDaoImpl" parent="baseDaoImpl" />
+	<bean id="priceDaoImpl" class="DaoImpl.PriceDaoImpl" parent="baseDaoImpl"/>
+	<bean id="imgDaoImpl" class="DaoImpl.ImgDaoImpl" parent="baseDaoImpl"/>
+	<bean id="sectionDaoImpl" class="DaoImpl.SectionDaoImpl" parent="baseDaoImpl" />
+	<bean id="routeDayDaoImpl" class="DaoImpl.RouteDayDaoImpl" parent="baseDaoImpl" />
+	<bean id="pageDaoImpl" class="DaoImpl.PageDaoImpl" parent="baseDaoImpl" />
+	<bean id="blockDaoImpl" class="DaoImpl.BlockDaoImpl" parent="baseDaoImpl" />
+	<bean id="titleContentDaoImpl" class="DaoImpl.TitleContentDaoImpl" parent="baseDaoImpl" />
+	<bean id="orderDaoImpl" class="DaoImpl.OrderDaoImpl" parent="baseDaoImpl" />	
+	<bean id="couponDaoImpl" class="DaoImpl.CouponDaoImpl" parent="baseDaoImpl" />	
+<!-- 	<bean id="personDaoImpl" class="DaoImpl.PersonDaoImpl" parent="baseDaoImpl" /> -->
+<!-- 	<bean id="personDaoImpl" class="DaoImpl.PersonDaoImpl" parent="baseDaoImpl" /> -->
+<!-- 	<bean id="personDaoImpl" class="DaoImpl.PersonDaoImpl" parent="baseDaoImpl" /> -->
+
+
+
+
+
+
+	<bean id="imgService" class="Service.ImgService" abstract="true" lazy-init="true" />
+	<bean id="imgServiceImpl" class="ServiceImpl.ImgServiceImpl" parent="imgService" p:imgDao-ref="imgDaoImpl" />
+	<bean id="userService" class="Service.UserService" abstract="true" lazy-init="true" />
+	<bean id="userServiceImpl" class="ServiceImpl.UserServiceImpl" parent="userService" p:userDao-ref="userDaoImpl" p:imgService-ref="imgServiceImpl"/>
+	<!-- 定义Service组件，并将DAO组件注入Service组件 -->
+<!-- 	<bean id="personService" class="Service.PersonService" abstract="true" lazy-init="true" /> -->
+<!-- 	<bean id="personServiceImpl" class="ServiceImpl.PersonServiceImpl" p:personDao-ref="personDaoImpl"/> -->
+	
+	<bean id="supplierService" class="Service.SupplierService" abstract="true" lazy-init="true" />
+	<bean id="supplierServiceImpl" class="ServiceImpl.SupplierServiceImpl" parent="supplierService" 
+	p:imgService-ref="imgServiceImpl"
+    p:supplierDao-ref="supplierDaoImpl" 
+    p:userDao-ref="userDaoImpl"/>
+	
+	<bean id="priceService" class="Service.PriceService" abstract="true" lazy-init="true" />
+	<bean id="priceServiceImpl" class="ServiceImpl.PriceServiceImpl" parent="priceService" 
+	p:priceDao-ref="priceDaoImpl" 
+	p:routeDao-ref="routeDaoImpl" 
+	/>
+
+
+	<bean id="routeService" class="Service.RouteService" abstract="true" lazy-init="true" />
+	<bean id="routeServiceImpl" class="ServiceImpl.RouteServiceImpl" parent="routeService" 
+		p:routeDao-ref="routeDaoImpl" 
+		p:kindDao-ref="kindDaoImpl"
+		p:sectionDao-ref="sectionDaoImpl"
+		p:provinceDao-ref="provinceDaoImpl"
+		p:cityDao-ref="cityDaoImpl"
+		p:managerDao-ref="managerDaoImpl"
+		p:supplierDao-ref="supplierDaoImpl"
+		p:userDao-ref="userDaoImpl"
+		p:routeDayDao-ref="routeDayDaoImpl"
+		p:titleContentDao-ref="titleContentDaoImpl"
+		p:priceDao-ref="priceDaoImpl"
+
+	/>
+
+
+
+
+	<bean id="managerService" class="Service.ManagerService" abstract="true" lazy-init="true" />
+	<bean id="managerServiceImpl" class="ServiceImpl.ManagerServiceImpl" parent="managerService" p:managerDao-ref="managerDaoImpl" />
+	
+	<bean id="provinceService" class="Service.ProvinceService" abstract="true" lazy-init="true" />
+	<bean id="provinceServiceImpl" class="ServiceImpl.ProvinceServiceImpl" parent="provinceService" p:provinceDao-ref="provinceDaoImpl" />
+	
+	<bean id="cityService" class="Service.CityService" abstract="true" lazy-init="true" />
+	<bean id="cityServiceImpl" class="ServiceImpl.CityServiceImpl" parent="cityService" p:cityDao-ref="cityDaoImpl" />
+
+	<bean id="kindService" class="Service.KindService" abstract="true" lazy-init="true" />
+	<bean id="kindServiceImpl" class="ServiceImpl.KindServiceImpl" parent="kindService" p:kindDao-ref="kindDaoImpl" />
+	
+	<bean id="sectionService" class="Service.SectionService" abstract="true" lazy-init="true" />
+	<bean id="sectionServiceImpl" class="ServiceImpl.SectionServiceImpl" parent="sectionService" p:sectionDao-ref="sectionDaoImpl" />
+
+	<bean id="routeDayService" class="Service.RouteDayService" abstract="true" lazy-init="true" />
+	<bean id="routeDayServiceImpl" class="ServiceImpl.RouteDayServiceImpl" parent="routeDayService" p:routeDayDao-ref="routeDayDaoImpl" />
+
+
+	<bean id="pageService" class="Service.PageService" abstract="true" lazy-init="true" />
+	<bean id="pageServiceImpl" class="ServiceImpl.PageServiceImpl" parent="pageService" p:pageDao-ref="pageDaoImpl" p:blockDao-ref="blockDaoImpl" p:imgService-ref="imgServiceImpl"  />
+	
+	
+	<bean id="couponService" class="Service.CouponService" abstract="true" lazy-init="true" />
+	<bean id="couponServiceImpl" class="ServiceImpl.CouponServiceImpl" parent="couponService" 
+	p:couponDao-ref="couponDaoImpl"
+	p:routeDao-ref="routeDaoImpl"
+	/>
+	
+<!-- 	<bean id="orderService" class="Service.OrderService" abstract="true" lazy-init="true" /> -->
+<!-- 	<bean id="orderServiceImpl" class="ServiceImpl.OrderServiceImpl" parent="orderService"  -->
+<!-- 	p:orderDao-ref="orderDaoImpl"  -->
+<!-- 	/> -->
+	
+</beans>

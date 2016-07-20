@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!--<include file="struts-user.xml"></include>-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true"/><!--开发模式-->  
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <package name="default" extends="json-default,struts-default">
+	</package>
+	<!-- ooad专用 -->
+	<package name="ooad" namespace="/" extends="default">
+		<action name="guitar_query" class="queryAction">
+			<result name="input">/WEB-INF/ooad/queryAll.jsp</result>
+			<result>/WEB-INF/ooad/queryAll.jsp</result>
+		</action>
+	</package>
+	<!-- ooad专用 -->
+	<package name="json" namespace="/" extends="default">
+		<action name="person_query" class="personAction" method="query">
+			<result  name="query" type="json">
+				<param name="root">jsonMap</param>
+				<!-- 白名单 -->
+				<param name="includeProperties"></param>
+				<!-- 黑名单 -->
+				<param name="excludeProperties"></param>
+			</result>
+		</action>
+		<action name="person_*" class="personAction" method="{1}">
+			<result name="{1}" type="json">
+			<param name="root">jsonMap</param>
+			</result>
+		</action>
+		<action name="util_*" class="utilAction"  method="{1}">
+			<result name="{1}" type="json">
+				<!-- 动态设置Action的属性值 -->
+			<param name="savePath">/upload</param>
+			</result>
+		</action>
+	</package>
+	<package name="send" extends="default">
+		<!-- 定义处理用户请求的Action，该Action的class属性不是实际处理类
+			, 而是Spring容器中的Bean实例的ID -->
+		<action name="login" class="loginAction">
+			<!-- 为两个逻辑视图配置视图页面 -->
+			<result name="error">/WEB-INF/content/error.jsp</result>
+			<result>/WEB-INF/content/ServletSuccess.jsp</result>
+		</action>
+			<!-- 请求转发 -->
+		<action name="send_*_*" class="sendAction">
+			<result>/WEB-INF/{1}/{2}.jsp</result>
+		</action>
+		<action name="*" class="sendAction">
+			<result>{1}.jsp</result>
+		</action>
+	</package>
+</struts>
+ 

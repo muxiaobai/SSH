@@ -1,0 +1,69 @@
+// Apply the java plugin to add support for Java
+apply plugin:'war'
+//apply from: 'gretty.plugin'
+ 
+repositories {
+    jcenter()
+}
+dependencies {
+   compile 'jstl:jstl:1.2','javax.servlet:javax.servlet-api:3.1.0','javax.mail:mail:1.4.7',
+   
+  'org.apache.struts:struts2-core:2.3.24.1',
+  'org.apache.struts:struts2-json-plugin:2.3.28','org.apache.struts:struts2-config-browser-plugin:2.3.24.1','org.apache.struts:struts2-spring-plugin:2.3.28',
+  
+  'mysql:mysql-connector-java:5.1.38','c3p0:c3p0:0.9.1.2',
+  'backport-util-concurrent:backport-util-concurrent:3.1',
+  
+  'org.springframework:spring-core:4.2.5.RELEASE','org.springframework:spring-test:4.2.5.RELEASE',
+  'org.springframework:spring-context:4.2.5.RELEASE','org.springframework:spring-beans:4.2.5.RELEASE',
+  'org.springframework:spring-web:4.2.5.RELEASE','org.springframework:spring-orm:4.2.5.RELEASE',
+  'org.springframework:spring-tx:4.2.5.RELEASE','org.springframework:spring-aop:4.2.5.RELEASE',
+  'org.springframework:spring-webmvc:4.2.5.RELEASE','org.springframework:spring-jdbc:4.2.5.RELEASE',
+  'org.springframework:spring-aspects:4.2.5.RELEASE','org.springframework:spring-expression:4.2.5.RELEASE',
+  'org.springframework:spring-beans:4.2.5.RELEASE','org.springframework:spring-jms:4.2.5.RELEASE',
+  'org.springframework:spring-webmvc:4.2.5.RELEASE','org.springframework:spring-webmvc-portlet:4.2.5.RELEASE',
+  'org.springframework:spring-oxm:4.2.5.RELEASE','org.springframework:spring-websocket:4.2.5.RELEASE',
+  'org.springframework:spring-context-support:4.2.5.RELEASE','org.springframework:spring-instrument:4.2.5.RELEASE',
+  'org.springframework:spring-messaging:4.2.5.RELEASE',
+  
+  'org.quartz-scheduler:quartz:2.2.1','org.quartz-scheduler:quartz-jobs:2.2.1',
+  
+  'log4j:log4j:1.2.17','org.slf4j:slf4j-log4j12:1.7.19','org.slf4j:slf4j-api:1.7.14'
+ 
+  	compile group: 'com.alibaba', name: 'fastjson', version: '1.2.13'
+  
+  
+	compile group: 'org.hibernate', name: 'hibernate-core', version: '5.1.0.Final'
+	compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.1.0.Final'
+
+	compile group: 'net.sf.ehcache', name: 'ehcache-core', version: '2.6.9'
+	compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.1'
+	
+	compile group: 'org.apache.poi', name: 'poi', version: '3.14'
+	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.14'
+	compile group: 'org.apache.poi', name: 'poi-ooxml-schemas', version: '3.14'
+	//compile group: 'org.jdom', name: 'jdom', version: '2.0.2'
+	compile group: 'org.jdom', name: 'jdom', version: '1.1'
+	
+	
+	compile group: 'org.aspectj', name: 'aspectjweaver', version: '1.8.9'
+	compile group: 'org.aspectj', name: 'aspectjrt', version: '1.8.9' 
+	compile group: 'org.aspectj', name: 'aspectjtools', version: '1.8.9'
+	compile group: 'aopalliance', name: 'aopalliance', version: '1.0'
+	
+	compile group: 'commons-io', name: 'commons-io', version: '2.5'
+	compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+	compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.2'
+	compile group: 'commons-lang', name: 'commons-lang', version: '2.6'
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+	compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
+	compile group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
+	
+    testCompile 'junit:junit:4.12'
+	}
+	
+	tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+	}
+	

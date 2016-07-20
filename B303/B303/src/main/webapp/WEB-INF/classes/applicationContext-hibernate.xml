@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/cache
+	http://www.springframework.org/schema/cache/spring-cache-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+	<!-- 定义数据源Bean，使用C3P0数据源实现，并注入数据源的必要信息 -->
+	<bean id="dataSource" class="${dataSource}" destroy-method="close">
+		<property name="driverClass" value="${driverClass}" />
+		<property name="jdbcUrl" value="${jdbcUrl}" />
+		<property name="user" value="${user}" />
+		<property name="password" value="${password}" />
+		<!--连接池中保留的最大连接数。默认值: 15 -->
+		<property name="maxPoolSize" value="20" />
+		<!-- 连接池中保留的最小连接数，默认为：3 -->
+		<property name="minPoolSize" value="2" />
+		<!-- 初始化连接池中的连接数，取值应在minPoolSize与maxPoolSize之间，默认为3 -->
+		<property name="initialPoolSize" value="2" />
+		<!--最大空闲时间，60秒内未使用则连接被丢弃。若为0则永不丢弃。默认值: 0 -->
+		<property name="maxIdleTime" value="60" />
+		<!-- 当连接池连接耗尽时，客户端调用getConnection()后等待获取新连接的时间，超时后将抛出SQLException，如设为0则无限期等待。单位毫秒。默认: 
+			0 -->
+		<property name="checkoutTimeout" value="3000" />
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。默认值: 3 -->
+		<property name="acquireIncrement" value="3" />
+		<!--定义在从数据库获取新连接失败后重复尝试的次数。默认值: 30 ；小于等于0表示无限次 -->
+		<property name="acquireRetryAttempts" value="0" />
+		<!--重新尝试的时间间隔，默认为：1000毫秒 -->
+		<property name="acquireRetryDelay" value="1000" />
+		<!--关闭连接时，是否提交未提交的事务，默认为false，即关闭连接，回滚未提交的事务 -->
+		<property name="autoCommitOnClose" value="false" />
+		<!--c3p0将建一张名为Test的空表，并使用其自带的查询语句进行测试。如果定义了这个参数那么属性preferredTestQuery将被忽略。你不能在这张Test表上进行任何操作，它将只供c3p0测试使用。默认值: 
+			null -->
+		<property name="automaticTestTable" value="Test" />
+		<!--如果为false，则获取连接失败将会引起所有等待连接池来获取连接的线程抛出异常，但是数据源仍有效保留，并在下次调用getConnection()的时候继续尝试获取连接。如果设为true，那么在尝试获取连接失败后该数据源将申明已断开并永久关闭。默认: 
+			false -->
+		<property name="breakAfterAcquireFailure" value="false" />
+		<!--每60秒检查所有连接池中的空闲连接。默认值: 0，不检查 -->
+		<property name="idleConnectionTestPeriod" value="60" />
+		<!--c3p0全局的PreparedStatements缓存的大小。如果maxStatements与maxStatementsPerConnection均为0，则缓存不生效，只要有一个不为0，则语句的缓存就能生效。如果默认值: 
+			0 -->
+		<property name="maxStatements" value="100" />
+		<!--maxStatementsPerConnection定义了连接池内单个连接所拥有的最大缓存statements数。默认值: 0 -->
+		<property name="maxStatementsPerConnection" value="0" />
+
+	</bean>
+	<!-- 定义Hibernate的SessionFactory，SessionFactory需要依赖数据源，注入dataSource -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+		p:dataSource-ref="dataSource">
+		<!-- annotatedClasses用来列出全部持久化类 -->
+		<property name="annotatedClasses">
+			<list>
+				<!-- 以下用来列出所有的PO类 -->
+				<value>Model.Person</value>
+			</list>
+		</property>
+		<!-- 定义Hibernate SessionFactory的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<!-- 指定Hibernate的连接方言 -->
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<!--是否根据Hiberante映射创建数据表 -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<prop key="hibernate.current_session_context_class">${hibernate.current_session_context_class}</prop>
+				<!-- 默认配置就是true, 如果有二级缓存就会用 -->
+				<prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}</prop>
+				<!-- 配置二级缓存的提供商,缓存有免费,收费的,内存级缓存,硬盘缓存....参考Hibernate学习文档 -->
+				<prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+				<!-- 配置使用的二级缓存的产品 ，设置二级缓存的提供者 -->
+				<prop key="hibernate.cache.region.factory_class">${hibernate.cache.region.factory_class}</prop>
+			</props>
+		</property>
+	</bean>
+	<cache:annotation-driven cache-manager="cacheManager" />
+
+	<!-- 配置EhCache的CacheManager通过configLocation指定ehcache.xml文件的位置 -->
+	<bean id="ehCacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+		p:configLocation="classpath:ehcache.xml" p:shared="false" />
+	<!-- 配置基于EhCache的缓存管理器并将EhCache的CacheManager注入该缓存管理器Bean -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
+		p:cacheManager-ref="ehCacheManager" />
+
+
+	<!-- 配置Hibernate的局部事务管理器，使用HibernateTransactionManager类 -->
+	<!-- 该类是PlatformTransactionManager接口针对采用Hibernate的特定实现类 -->
+	<!-- 配置HibernateTransactionManager需依赖注入SessionFactory -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+		p:sessionFactory-ref="sessionFactory" />
+
+	<!-- 配置事务增强处理Bean,指定事务管理器 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="find*" read-only="true"  propagation="REQUIRED"/>
+			<tx:method name="*" isolation="DEFAULT" propagation="REQUIRED"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:config>
+		<aop:pointcut id="myPointcut" expression="execution(* Service*.*.*(..))" />
+<!-- 		<aop:pointcut id="myPointcut2" expression="execution(* Dao*.*.*(..))" /> -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut" />
+		
+<!-- 		<aop:advisor advice-ref="txAdvice" pointcut-ref="myPointcut2" /> -->
+		
+	</aop:config>
+</beans>
