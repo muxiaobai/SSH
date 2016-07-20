@@ -1,4 +1,8 @@
 ## 框架组合说明
+### 框架版本
+#### hibernate5.1
+#### Spring4.2.5
+#### Struts2.3
 [学习路线](https://atlas.mindmup.com/2016/07/fe65af60304c013445fc1f4e1c74df87/map/index.html)
 
 ![tu](20160720100852.png)
