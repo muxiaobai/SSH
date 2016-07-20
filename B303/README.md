@@ -3,10 +3,12 @@
 
 ![tu](20160720100852.png)
 
-
 [Hibernate注解总结](http://www.imooc.com/article/8815)
+
 #### 推荐的资源
 [https://segmentfault.com/](https://segmentfault.com/)
+
+掘金插件
 
 ![掘金插件](201607201017.png)
 
