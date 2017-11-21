@@ -1,7 +1,7 @@
 package Factory;
 
-import Service.PersonService;
-import ServiceImpl.PersonServiceImpl;
+import org.web.service.PersonService;
+import org.web.service.impl.PersonServiceImpl;
 
 public class ServiceImplFactory {
 	public static PersonService getPersonServiceInstance() {

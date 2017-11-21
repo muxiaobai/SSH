@@ -1,12 +1,13 @@
-package Action;
+package org.web.action;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import Dao.PersonDao;
-import Entity.Person;
+import org.web.dao.PersonDao;
+import org.web.entity.Person;
 
 public class PersonAction extends SuperAction<Person> {
 	public PersonAction() {

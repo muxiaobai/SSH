@@ -1,4 +1,4 @@
-package Dao;
+package org.web.dao;
 
 import java.util.List;
 public interface BaseDao<T> {

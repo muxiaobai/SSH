@@ -1,4 +1,4 @@
-package Entity;
+package org.web.entity;
 
 import java.io.Serializable;
 import java.util.Date;

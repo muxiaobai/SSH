@@ -1,4 +1,4 @@
-package Action;
+package org.web.action;
 
 import java.util.Map;
 import org.apache.struts2.interceptor.ApplicationAware;

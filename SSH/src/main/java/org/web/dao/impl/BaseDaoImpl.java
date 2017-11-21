@@ -1,11 +1,13 @@
-package DaoImpl;
+package org.web.dao.impl;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+
+import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import Dao.BaseDao;
+import org.web.dao.BaseDao;
 
 @SuppressWarnings({"unchecked","rawtypes"})
 public class BaseDaoImpl<T> implements BaseDao<T> {
@@ -13,6 +15,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	protected SessionFactory sessionFactory;
 	private Class clazz;
 	private String hql;
+	private static Logger logger = Logger.getLogger(BaseDaoImpl.class);  
 	public BaseDaoImpl() {
 		// 获取子类对象
 		//System.out.println(this);
@@ -30,7 +33,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	// 依赖注入SessionFactory所需的setter方法
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-		System.out.println("=====注入sessionFactory===========");
+		logger.info("=====注入sessionFactory===========");
 
 	}
 	 /** 

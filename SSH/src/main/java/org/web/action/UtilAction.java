@@ -1,4 +1,4 @@
-package Action;
+package org.web.action;
 import Model.UploadFile;
 import Util.UploadUtil;
 

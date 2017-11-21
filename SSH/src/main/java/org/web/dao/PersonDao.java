@@ -1,6 +1,6 @@
-package Dao;
+package org.web.dao;
 
-import Entity.Person;
+import org.web.entity.Person;
 
 public interface PersonDao extends BaseDao<Person> {
 

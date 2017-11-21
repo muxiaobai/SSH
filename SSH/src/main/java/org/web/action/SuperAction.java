@@ -1,4 +1,4 @@
-package Action;
+package org.web.action;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Map;

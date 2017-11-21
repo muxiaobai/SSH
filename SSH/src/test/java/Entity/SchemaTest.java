@@ -2,6 +2,7 @@ package Entity;
 
 import java.util.Date;
 import java.util.EnumSet;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,8 +16,8 @@ import org.hibernate.tool.schema.TargetType;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import Dao.PersonDao;
-import Entity.Person;
+import org.web.dao.PersonDao;
+import org.web.entity.Person;
 
 public class SchemaTest {
 	public static void main(String[] args) {

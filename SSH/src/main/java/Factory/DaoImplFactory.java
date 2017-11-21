@@ -1,7 +1,7 @@
 package Factory;
 
-import Dao.PersonDao;
-import DaoImpl.PersonDaoImpl;
+import org.web.dao.PersonDao;
+import org.web.dao.impl.PersonDaoImpl;
 
 public class DaoImplFactory {
 	public static PersonDao getPersonDaoInstance() {

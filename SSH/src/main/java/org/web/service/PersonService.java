@@ -1,6 +1,6 @@
-package Service;
+package org.web.service;
 
-import Entity.Person;
+import org.web.entity.Person;
 
 public interface PersonService extends BaseService<Person> {
 

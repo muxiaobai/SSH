@@ -1,12 +1,12 @@
-package Action;
+package org.web.action;
 
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.web.dao.PersonDao;
+import org.web.entity.Person;
 
 import com.opensymphony.xwork2.ActionContext;
 
-import Dao.PersonDao;
-import Entity.Person;
 
 public class LoginAction extends SuperAction<Person>  {
 	/**

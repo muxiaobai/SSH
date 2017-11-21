@@ -1,12 +1,11 @@
-package Action;
+package org.web.action;
 
-import com.opensymphony.xwork2.ActionSupport;
 /**
  * 用来请求转发的Action
  * @author zhang
  *
  */
-public class SendAction extends ActionSupport {
+public class SendAction extends BaseAction {
 	/**
 	 * 
 	 */
@@ -16,6 +15,7 @@ public SendAction() {
 }
 	@Override
 	public String execute() throws Exception {
+	    System.out.println(session);
 		return SUCCESS;
 	}
 }
