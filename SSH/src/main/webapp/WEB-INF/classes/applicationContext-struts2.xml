@@ -18,11 +18,13 @@
 	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 	
 	<!-- 让Spring管理的Action实例，并依赖注入业务逻辑组件 -->
-	<bean id="loginAction" class="Action.LoginAction" scope="prototype"/>
-	<bean id="personAction" class="Action.PersonAction" scope="prototype"/>
-	<bean id="utilAction" class="Action.UtilAction" scope="prototype"/>
+	<bean id="loginAction" class="org.web.action.LoginAction" scope="prototype"/>
+	<bean id="personAction" class="org.web.action.PersonAction" scope="prototype">
+         <property name = "lucenePerson" ref="LucenePerson"/> 
+	</bean>
+	<bean id="utilAction" class="org.web.action.UtilAction" scope="prototype"/>
 	<!-- 请求转发Action -->
-	<bean id="sendAction" class="Action.SendAction"/>
+	<bean id="sendAction" class="org.web.action.SendAction"/>
 
 	
 </beans>

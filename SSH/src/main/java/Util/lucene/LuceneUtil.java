@@ -35,7 +35,6 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
-import org.lucene.Arcticle;
 
 import Util.Constant;
 /**
@@ -67,7 +66,7 @@ public class LuceneUtil {
             directory_sp = FSDirectory.open(Paths.get(Constant.INDEXURL_ALL));
             matchVersion = Version.LUCENE_7_1_0;
             analyzer =  new StandardAnalyzer();
-//            config = new IndexWriterConfig(matchVersion, analyzer);
+            config = new IndexWriterConfig( analyzer);
             System.out.println("directory_sp    " + directory_sp);
             // 创建内存索引库
             ramDirectory = new RAMDirectory();
@@ -76,28 +75,6 @@ public class LuceneUtil {
             logger.error("IO异常！");
         }
     }
-    public static List<Arcticle> search(String indexDir,String keys) throws Exception{  
-        IndexSearcher searcher=new IndexSearcher(DirectoryReader.open(directory_sp));  
-        MultiFieldQueryParser qp=new MultiFieldQueryParser(new String[]{"title","content"}, analyzer);  
-        Query query=qp.parse(keys);  
-        //初始化高亮器  
-        Highlighter high=new Highlighter(htmlFormatter, new QueryScorer(query));  
-        TopDocs td=searcher.search(query, 10);  
-        ScoreDoc[] sd=td.scoreDocs;  
-        List<Arcticle> arcList=new ArrayList<Arcticle>();  
-        for(ScoreDoc ss:sd){  
-            Document doc=searcher.doc(ss.doc);  
-            Arcticle arc=new Arcticle();  
-            arc.setTitle(doc.getField("title").stringValue());  
-            TokenStream tokenStream = analyzer.tokenStream("desc", new StringReader(doc.get("desc")));    
-            String str = high.getBestFragment(tokenStream,  doc.get("desc"));  
-            arc.setDescription(str);  
-//            arc.setUrl(CsdnSpilder.rootDir+doc.getField("url").stringValue());  
-            arc.setCreateTime(doc.getField("createTime").stringValue());  
-            arcList.add(arc);  
-        }  
-        return arcList;  
-    }  
     /*
      * 返回用于操作索引的对象
      * */

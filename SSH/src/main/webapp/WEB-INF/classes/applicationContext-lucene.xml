@@ -17,7 +17,11 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 	
-	<bean id="luceneDao" class="org.lucene.LuceneDao" />
+	<bean id="LucenePerson" class="org.web.lucene.LucenePerson" >
+	
+<!-- 	    <property name = "personService" ref="PersonService"/>  -->
+	</bean>
+    
 <!--     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">   -->
 <!--         <property name="messageConverters">   -->
 <!--             <list>   -->

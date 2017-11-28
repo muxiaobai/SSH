@@ -7,6 +7,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.util.ServletContextAware;
@@ -20,6 +22,7 @@ public class SuperAction<T> extends ActionSupport
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static Logger logger = Logger.getLogger(SuperAction.class);  
 	protected HttpServletRequest request;// 请求对象
 	protected HttpServletResponse response;// 响应对象
 	protected HttpSession session;// 会话对象
@@ -38,6 +41,9 @@ public class SuperAction<T> extends ActionSupport
 		this.request = request;
 		this.session = this.request.getSession();
 	}
+	public static Logger getLogger() {
+        return logger;
+    }
 	// 在拦截器执行此方法的时候Action的构造方法已经创建,所以Model中有值
 	public T getModel() {
 		return model;

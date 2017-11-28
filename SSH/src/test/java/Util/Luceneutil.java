@@ -83,7 +83,8 @@ public class Luceneutil {
         Directory directory = FSDirectory.open(Paths.get(Constant.INDEXURL_ALL));        
         IndexReader indexReader = DirectoryReader.open(directory);        
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);       
-        Query query = new TermQuery(new Term("content", "教"));        
+        Query query = new TermQuery(new Term("content", "教")); 
+//        Query query = new TermQuery(new Term("name", "l")); 
         TopDocs topDocs = indexSearcher.search(query, 10);        
         Long count = topDocs.totalHits;        
         System.out.println("count:" + count);        

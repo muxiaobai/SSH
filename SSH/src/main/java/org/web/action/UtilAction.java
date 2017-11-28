@@ -9,6 +9,10 @@ public class UtilAction extends SuperAction<UploadFile> {
 			UploadUtil.uploadFile(model);
 			return "upload";
 		}
+		public String luceneSearch() throws Exception{
+		        //
+            return "search";
+        }
 		//发邮件
 //		public String sendMessage(){
 //			SendEmailUtil.sendEmail(model);

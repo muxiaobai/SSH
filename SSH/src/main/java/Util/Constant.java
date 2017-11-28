@@ -19,7 +19,7 @@ package Util;
  * @see 	 
  */
 public class Constant {
-    public static final String INDEXURL_ALL = "D://ssm/All";
+    public static final String INDEXURL_ALL = "D://ssm//All";
 
 }
 

@@ -7,17 +7,18 @@
  *
 */
 
-package org.lucene;
+package org.web.lucene;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field.Store;
+import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
@@ -33,13 +34,11 @@ import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.Scorer;
 import org.apache.lucene.search.highlight.SimpleFragmenter;
 import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.FSDirectory;
+import org.web.action.PersonAction;
+import org.web.entity.Person;
+import org.web.service.PersonService;
 
-import Util.Constant;
-import Util.lucene.ArcticleUtil;
 import Util.lucene.LuceneUtil;
-import Util.lucene.SynonymAnalyzerUtil;
 
 /**
  * ClassName:LuceneDao <br/>
@@ -51,16 +50,61 @@ import Util.lucene.SynonymAnalyzerUtil;
  * @since    JDK 1.8
  * @see 	 
  */
-public class LuceneDao {
+public class LucenePerson {
+    private  static Logger logger = Logger.getLogger(PersonAction.class);  
+    private PersonService personService;
+    public void setPersonService(PersonService personService) {
+        this.personService = personService;
+    }
+    public PersonService getPersonService() {
+        return personService;
+    }
+    public LucenePerson() {
+        logger.info("实例化:"+LucenePerson.class);
+        try {
+            //It's not good ,because  It will create index every init.
+//            List<Person> lists=personService.getPersonList();
+//            for (Iterator iterator = lists.iterator(); iterator.hasNext();) {
+//                Person person = (Person) iterator.next();
+//                this.addIndex(person);
+//            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) {
+        LucenePerson lucenePerson = new LucenePerson();
+        Person person = new Person();
+        person.setName("zhang ");
+        person.setPassword("password");
+        try {
+//            lucenePerson.addIndex(person);
+            System.out.println(lucenePerson.findIndex("password", 0, 10));
+        } catch (Exception e) {
+            
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            
+        }
+    }
+    public static Document PersonToDocument(Person person) {
+        Document document = new Document();
+//      StringField idfield = new intField("id", person.getId(), Store.YES);
+        TextField title = new TextField("name", person.getName(),Store.YES);
+        TextField escription = new TextField("password", person.getPassword(),Store.YES);
+        document.add(title);
+        document.add(escription);
+        return document;
+        }
     /*
      * 建立索引
      * */
-    public void addIndex(Arcticle Arcticle) throws IOException {
+    public void addIndex(Person Person) throws IOException {
 
         IndexWriter indexWriter = LuceneUtil.getIndexWriterOfSP();
-        Document doc = ArcticleUtil.ArcticleToDocument(Arcticle);
+        Document doc = this.PersonToDocument(Person);
         indexWriter.addDocument(doc);
-//              indexWriter.forceMerge(10);//合并cfs文件。比如设定1，就是自动合并成一个索引cfs文件
+        indexWriter.forceMerge(10);//合并cfs文件。比如设定1，就是自动合并成一个索引cfs文件
         indexWriter.close();
     }
 
@@ -75,20 +119,16 @@ public class LuceneDao {
         Term term = new Term(fieldName,fieldValue);
         //根据字段对应的值删除索引
         indexWriter.deleteDocuments(term);
-
         indexWriter.close();
     }
 
     /*
      * 先删除符合条件的记录，再创建一个符合条件的记录
      * */
-    public void updateIndex(String fieldName,String fieldValue,Arcticle Arcticle) throws IOException {
-
+    public void updateIndex(String fieldName,String fieldValue,Person Person) throws IOException {
         IndexWriter indexWriter = LuceneUtil.getIndexWriterOfSP();
-
         Term term = new Term(fieldName,fieldValue);
-
-        Document document = ArcticleUtil.ArcticleToDocument(Arcticle);
+        Document document = this.PersonToDocument(Person);
 
         /*
          * 1.设置更新的条件
@@ -102,71 +142,59 @@ public class LuceneDao {
     /*
      * 分页：每页10条
      * */
-    public List<Arcticle> findIndex(String keywords, int start, int rows) throws Exception {
-
-        Directory directory = FSDirectory.open(Paths.get(Constant.INDEXURL_ALL));//索引创建在硬盘上。
+    public List<Person> findIndex(String keywords, int start, int rows) throws Exception {
         IndexSearcher indexSearcher =  LuceneUtil.getIndexSearcherOfSP();
-
         /**同义词处理*/
-        String result ="";
+//        String result ="";
 //        String result = SynonymAnalyzerUtil.displayTokens(SynonymAnalyzerUtil.convertSynonym(SynonymAnalyzerUtil.analyzeChinese(keywords, true)));
 //        Analyzer analyzer4 = new IKAnalyzer(false);// 普通简陋语意分词
-//        String result = keywords;
+        String result = keywords;
         //需要根据哪几个字段进行检索...
-        String fields[] = {"goodName"};
-
+        String fields[] = {"name","password"};
         //查询分析程序（查询解析）
         QueryParser queryParser = new MultiFieldQueryParser(fields, LuceneUtil.getAnalyzer());
-
         //不同的规则构造不同的子类...
         //title:keywords content:keywords
         Query query = queryParser.parse(result);
-
+//        Query query = new TermQuery(new Term("name", "l"));        
         //这里检索的是索引目录,会把整个索引目录都读取一遍
         //根据query查询，返回前N条
         TopDocs topDocs = indexSearcher.search(query, start+rows);
-
         System.out.println("总记录数="+topDocs.totalHits);
-
         ScoreDoc scoreDoc[] = topDocs.scoreDocs;
-
         /**添加设置文字高亮begin*/
         //htmly页面高亮显示的格式化，默认是<b></b>即加粗
         Formatter formatter = new SimpleHTMLFormatter("<font color='red'>", "</font>");
         Scorer scorer = new QueryScorer(query);
         Highlighter highlighter = new Highlighter(formatter, scorer);
-
         //设置文字摘要（高亮的部分），此时摘要大小为10
         //int fragmentSize = 10;
         Fragmenter fragmenter = new SimpleFragmenter();
         highlighter.setTextFragmenter(fragmenter);
-
         /**添加设置文字高亮end*/
-        List<Arcticle> Arcticlelist = new ArrayList<Arcticle>();
+        List<Person> Personlist = new ArrayList<Person>();
         //防止数组溢出
         int endResult = Math.min(scoreDoc.length, start+rows);
-        Arcticle Arcticle = null;
-
         for(int i = start;i < endResult ;i++ ){
-            Arcticle = new Arcticle();
+            Person  Person = new Person();
             //docID lucene的索引库里面有很多的document，lucene为每个document定义了一个编号，唯一标识，自增长
             int docID = scoreDoc[i].doc;
             System.out.println("标识docID="+docID);
             Document document = indexSearcher.doc(docID);
             /**获取文字高亮的信息begin*/
             System.out.println("==========================");
-            TokenStream tokenStream = LuceneUtil.getAnalyzer().tokenStream("goodName", new StringReader(document.get("goodName")));
-            String goodName = highlighter.getBestFragment(tokenStream, document.get("goodName"));
-            System.out.println("goodName="+goodName);
+            TokenStream tokenStream = LuceneUtil.getAnalyzer().tokenStream("name", new StringReader(document.get("name")));
+            String goodName = highlighter.getBestFragment(tokenStream, document.get("name"));
+            System.out.println("name="+goodName);
             System.out.println("==========================");
             /**获取文字高亮的信息end*/
 
             //备注：document.get("id")的返回值是String
-            Arcticle.setTitle((document.get("id")));
-            Arcticle.setDescription(goodName);
-            Arcticlelist.add(Arcticle);
+            Person.setName((document.get("name")));
+            Person.setPassword(document.get("password"));
+            Personlist.add(Person);
         }
-        return Arcticlelist;
+        return Personlist;
     }
 }
 

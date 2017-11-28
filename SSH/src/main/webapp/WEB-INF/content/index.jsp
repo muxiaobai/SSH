@@ -75,6 +75,7 @@
 			    <ul>
 					<li><a title="send_util_upload.action" href="#">上传文件</a></li>	
 					<li><a title="send_util_sendMessage.action" href="#">发送邮件</a></li>	
+					<li><a title="send_person_luceneSearch.action" href="#">luceneSearch</a></li> 
 			   </ul>
 		    </div> 
 		    

@@ -23,7 +23,10 @@
 
 	<!-- 定义BaseDao组件，并将SessionFactory注入DAO组件  泛型不能实例化,所以懒加载-->	
 	<bean id="BaseDao" abstract="true" lazy-init="true" p:sessionFactory-ref="sessionFactory" />
-	<bean id="personDaoImpl" class="DaoImpl.PersonDaoImpl" parent="BaseDao"/>
-	
+	<bean id="PersonDao" class="org.web.dao.impl.PersonDaoImpl" parent="BaseDao"/>
+    <bean id="PersonService" class="org.web.service.impl.PersonServiceImpl">
+           <property name="personDao" ref="PersonDao"/>
+    </bean>
+    
 	
 </beans>
