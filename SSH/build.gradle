@@ -41,6 +41,22 @@ dependencies {
   'org.quartz-scheduler:quartz:2.2.1',
   'log4j:log4j:1.2.17','org.slf4j:slf4j-log4j12:1.7.19','org.slf4j:slf4j-api:1.7.14'
  // 'com.qcloud:qcloud-sdk:2.1.4','com.qcloud:cos_api:3.1'
+  // https://mvnrepository.com/artifact/org.apache.lucene/lucene-core
+compile group: 'org.apache.lucene', name: 'lucene-core', version: '7.1.0'
+  // https://mvnrepository.com/artifact/org.apache.lucene/lucene-queryparser
+compile group: 'org.apache.lucene', name: 'lucene-queryparser', version: '7.1.0'
+  // https://mvnrepository.com/artifact/org.apache.lucene/lucene-analyzers-common
+compile group: 'org.apache.lucene', name: 'lucene-analyzers-common', version: '7.1.0'
+  // https://mvnrepository.com/artifact/org.apache.lucene/lucene-analyzers
+compile group: 'org.apache.lucene', name: 'lucene-analyzers', version: '3.6.2'
+  // https://mvnrepository.com/artifact/org.apache.lucene/lucene-queries
+compile group: 'org.apache.lucene', name: 'lucene-queries', version: '7.1.0'
+  // https://mvnrepository.com/artifact/org.apache.lucene/lucene-highlighter
+compile group: 'org.apache.lucene', name: 'lucene-highlighter', version: '7.1.0'
+  // https://mvnrepository.com/artifact/org.apache.lucene/lucene-memory
+compile group: 'org.apache.lucene', name: 'lucene-memory', version: '7.1.0'
+  // https://mvnrepository.com/artifact/org.apache.lucene/lucene-spatial
+compile group: 'org.apache.lucene', name: 'lucene-spatial', version: '7.1.0'
   
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the

@@ -26,10 +26,10 @@ $(function(){
 		    url:'${basePath}/person_luceneSearch.action', 
 		    success:function(result){
 		    	console.info(result);
-		    	$("#result").val(result);
+		    	$("#result").html(result);
 		       // 如果成功 则重置表单数据
 		       $("#ff").form("disableValidation");
-		       $("#ff").form("reset");
+// 		       $("#ff").form("reset");
 		    }    
 		});  
 	});
