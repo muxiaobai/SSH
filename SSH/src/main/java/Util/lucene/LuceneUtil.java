@@ -92,7 +92,7 @@ public class LuceneUtil {
     public static IndexSearcher getIndexSearcherOfSP() throws IOException {
 
         System.out.println("directory_sp    " + directory_sp);
-        IndexReader indexReader = DirectoryReader.open(ramDirectory);
+        IndexReader indexReader = DirectoryReader.open(directory_sp);
 
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);
 

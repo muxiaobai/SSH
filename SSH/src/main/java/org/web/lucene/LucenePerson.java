@@ -184,8 +184,8 @@ public class LucenePerson {
             /**获取文字高亮的信息begin*/
             System.out.println("==========================");
             TokenStream tokenStream = LuceneUtil.getAnalyzer().tokenStream("name", new StringReader(document.get("name")));
-            String goodName = highlighter.getBestFragment(tokenStream, document.get("name"));
-            System.out.println("name="+goodName);
+            String name = highlighter.getBestFragment(tokenStream, document.get("name"));
+            System.out.println("name="+name);
             System.out.println("==========================");
             /**获取文字高亮的信息end*/
 
