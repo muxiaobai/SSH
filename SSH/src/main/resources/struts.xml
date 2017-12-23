@@ -7,8 +7,18 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
     <constant name="struts.devMode" value="true"/><!--开发模式-->  
     <constant name="struts.i18n.encoding" value="UTF-8"/>
-    <package name="default" extends="json-default,struts-default">
-	</package>
+    <package name="default" extends="json-default,struts-default">	
+<!--     <interceptors> -->
+<!-- 	    <interceptor name="monitoring" class="net.bull.javamelody.StrutsInterceptor" /> -->
+<!-- 	    <interceptor-stack name="myStack"> -->
+<!-- 	        <interceptor-ref name="monitoring" /> -->
+<!-- 	        struts默认的拦截器 -->
+<!-- 	        <interceptor-ref name="defaultStack"/> -->
+<!-- 	    </interceptor-stack> -->
+<!-- 	</interceptors>     -->
+<!-- 	<default-interceptor-ref name="myStack" /> -->
+    </package>
+	
 	<package name="json" namespace="/" extends="default">
 		<action name="person_query" class="personAction" method="query">
 			<result  name="query" type="json">
@@ -43,11 +53,10 @@
 		<action name="send_*_*" class="sendAction">
 			<result>/WEB-INF/{1}/{2}.jsp</result>
 		</action>
-		<action name="*" class="sendAction">
-			<result>{1}.jsp</result>
-		</action>
+<!-- 		<action name="*" class="sendAction"> -->
+<!-- 			<result>{1}.jsp</result> -->
+<!-- 		</action> -->
 	</package>
-	
 	
 </struts>
  

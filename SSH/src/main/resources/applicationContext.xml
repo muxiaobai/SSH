@@ -27,6 +27,15 @@
     <bean id="PersonService" class="org.web.service.impl.PersonServiceImpl">
            <property name="personDao" ref="PersonDao"/>
     </bean>
-    
+    <!-- javamelody -->
+    <bean id="facadeMonitoringAdvisor"
+        class="net.bull.javamelody.MonitoringSpringAdvisor">
+    <property name="pointcut">
+        <bean
+            class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+            <property name="pattern" value="org.web.*.*" />
+        </bean> 
+    </property>
+    </bean>
 	
 </beans>
