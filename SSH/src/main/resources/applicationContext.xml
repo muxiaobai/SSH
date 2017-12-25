@@ -33,7 +33,7 @@
     <property name="pointcut">
         <bean
             class="org.springframework.aop.support.JdkRegexpMethodPointcut">
-            <property name="pattern" value="org.web.*.*" />
+            <property name="pattern" value="org.web.service.*" />
         </bean> 
     </property>
     </bean>

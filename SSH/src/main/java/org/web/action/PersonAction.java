@@ -9,6 +9,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.web.dao.PersonDao;
 import org.web.entity.Person;
+import org.web.lucene.LuceneDemo;
 import org.web.lucene.LucenePerson;
 
 /**
@@ -35,11 +36,18 @@ public class PersonAction extends SuperAction<Person> {
 	private String ids;
 	private Map<String, Object> jsonMap;
 	private LucenePerson lucenePerson;
+    private LuceneDemo lucenedemo;
 	public LucenePerson getLucenePerson() {
         return lucenePerson;
     }
 	public void setLucenePerson(LucenePerson lucenePerson) {
         this.lucenePerson = lucenePerson;
+    }
+    public LuceneDemo getLucenedemo() {
+        return lucenedemo;
+    }
+    public void setLucenedemo(LuceneDemo lucenedemo) {
+        this.lucenedemo = lucenedemo;
     }
 	public Map<String, Object> getJsonMap() {
 		return jsonMap;
@@ -87,6 +95,23 @@ public class PersonAction extends SuperAction<Person> {
         jsonMap.put("total",persons.size());
 //        System.out.println("page:" + page + ",rows:" + rows);
         return "luceneSearch";
+    }
+	
+	public String searchFile() {
+        jsonMap = new HashMap<String, Object>();
+        String content = request.getParameter("content");
+        System.out.println(content);
+        List<String> files = new ArrayList<String>();
+        
+        try {
+            files = lucenedemo.seach(content, 0,10);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        jsonMap.put("rows", files);
+//        jsonMap.put("total",files.size());
+//      System.out.println("page:" + page + ",rows:" + rows);
+        return "searchFile";
     }
 	public String query() {
 		jsonMap = new HashMap<String, Object>();

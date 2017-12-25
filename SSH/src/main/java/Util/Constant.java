@@ -19,7 +19,9 @@ package Util;
  * @see 	 
  */
 public class Constant {
-    public static final String INDEXURL_ALL = "D://ssm//All";
+    public static final String INDEX_URL = "E://weblech//index";//索引地址
+    public static final String SEARCH_PATH = "E://weblech//sistes";//搜索的文件
+    
 
 }
 

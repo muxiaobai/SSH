@@ -21,6 +21,7 @@
 	<bean id="loginAction" class="org.web.action.LoginAction" scope="prototype"/>
 	<bean id="personAction" class="org.web.action.PersonAction" scope="prototype">
          <property name = "lucenePerson" ref="LucenePerson"/> 
+         <property name = "lucenedemo" ref="LuceneDemo"/>
 	</bean>
 	<bean id="utilAction" class="org.web.action.UtilAction" scope="prototype"/>
 	<!-- 请求转发Action -->

@@ -9,27 +9,16 @@
 
 package Util.lucene;
 import java.io.IOException;
-import java.io.StringReader;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
-import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
-import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
-import org.apache.lucene.search.highlight.Highlighter;
-import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
@@ -63,7 +52,7 @@ public class LuceneUtil {
     private static Logger logger = Logger.getLogger(LuceneUtil.class);   
     static {
         try {
-            directory_sp = FSDirectory.open(Paths.get(Constant.INDEXURL_ALL));
+            directory_sp = FSDirectory.open(Paths.get(Constant.INDEX_URL));
             matchVersion = Version.LUCENE_7_1_0;
             analyzer =  new StandardAnalyzer();
             config = new IndexWriterConfig( analyzer);
@@ -91,7 +80,7 @@ public class LuceneUtil {
      * */
     public static IndexSearcher getIndexSearcherOfSP() throws IOException {
 
-        System.out.println("directory_sp    " + directory_sp);
+        System.out.println("directory_sp:" + directory_sp);
         IndexReader indexReader = DirectoryReader.open(directory_sp);
 
         IndexSearcher indexSearcher = new IndexSearcher(indexReader);

@@ -69,13 +69,15 @@
 				<!-- 单击后,会动态生成tab,显示在页面的右边区域 --> 
 			 <div title="基本操作"> 
 				<ul>
-					<li><a title="send_content_ServletSuccess.action" href="#">成功管理</a></li>	
+					<li><a title="send_content_ServletSuccess.action" href="#">成功访问</a></li>	
 					<li><a title="send_content_dataGrid.action" href="#">用户管理</a></li>	
 			   </ul>
 			    <ul>
 					<li><a title="send_util_upload.action" href="#">上传文件</a></li>	
 					<li><a title="send_util_sendMessage.action" href="#">发送邮件</a></li>	
-					<li><a title="send_person_luceneSearch.action" href="#">luceneSearch</a></li> 
+					<li><a title="send_util_zTree.action" href="#">zTree</a></li> 
+					<li><a title="send_person_luceneSearch.action" href="#">Person实体</a></li> 
+					<li><a title="send_person_searchFile.action" href="#">luceneSearch文件</a></li> 
 			   </ul>
 		    </div> 
 		    

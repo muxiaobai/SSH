@@ -1,10 +1,14 @@
 package org.web.action;
+import java.util.Map;
+
 import Model.UploadFile;
 import Util.UploadUtil;
 
 public class UtilAction extends SuperAction<UploadFile> {
 	private static final long serialVersionUID = 1L;
-		public String upload() throws Exception{
+	private Map<String, Object> jsonMap;
+    
+	public String upload() throws Exception{
 			model.setSaveFilePath("E:");
 			UploadUtil.uploadFile(model);
 			return "upload";
@@ -18,4 +22,5 @@ public class UtilAction extends SuperAction<UploadFile> {
 //			SendEmailUtil.sendEmail(model);
 //			return "sendMessage";
 //		}
+		
 }
